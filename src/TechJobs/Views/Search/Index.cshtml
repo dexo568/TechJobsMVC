@@ -7,11 +7,23 @@
         @foreach (KeyValuePair<string, string> column in ViewBag.columns)
         {
             <span>
-                <input type="radio"
+                @if(@column.Key == "all")
+                {
+                    <input type="radio"
                        name="searchType"
                        id="@column.Key"
                        value="@column.Key" 
-                       checked="@column.Key == 'all''"/>
+                       checked />
+
+                }
+                else
+                {
+                    <input type="radio"
+                           name="searchType"
+                           id="@column.Key"
+                           value="@column.Key" />
+                }
+                
                 <label for="@column.Key">@column.Value</label>
             </span>
         }
